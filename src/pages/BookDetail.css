@@ -1,0 +1,239 @@
+/* BookDetail.css */
+
+.book-detail-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .loading,
+  .error-message,
+  .not-found {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+  }
+  
+  .not-found {
+    color: #7f8c8d;
+  }
+  
+  .book-detail {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .book-cover-section {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .book-cover {
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .favorite-button.large {
+    padding: 0.75rem 1.5rem;
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .favorite-button.large:hover {
+    background-color: #f39c12;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .favorite-button.large.favorited {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .book-info-section {
+    flex: 1;
+  }
+  
+  .book-title {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+  }
+  
+  .book-author {
+    font-size: 1.3rem;
+    margin: 0 0 1.5rem 0;
+    color: #7f8c8d;
+    font-weight: 400;
+  }
+  
+  .book-metadata {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    color: #34495e;
+    font-size: 0.95rem;
+  }
+  
+  .book-metadata span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .book-price {
+    font-weight: 700;
+    color: #e74c3c;
+  }
+  
+  .book-description h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .book-description p {
+    line-height: 1.6;
+    color: #34495e;
+  }
+  
+  .reviews-section {
+    border-top: 1px solid #ecf0f1;
+    padding-top: 2rem;
+  }
+  
+  .reviews-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+  }
+  
+  .no-reviews {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  
+  .reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .review {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .reviewer-name {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .review-date {
+    color: #95a5a6;
+    font-size: 0.85rem;
+  }
+  
+  .review-rating {
+    margin-left: auto;
+  }
+  
+  .review-rating .star {
+    color: #ddd;
+    font-size: 1.1rem;
+  }
+  
+  .review-rating .star.filled {
+    color: #f1c40f;
+  }
+  
+  .review-comment {
+    line-height: 1.6;
+    color: #34495e;
+    margin: 0;
+  }
+  
+  .login-prompt {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+  }
+  
+  .login-prompt a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .login-prompt a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .book-detail {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .book-cover-section {
+      flex: 1;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .book-metadata {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .book-title {
+      font-size: 1.7rem;
+    }
+    
+    .book-author {
+      font-size: 1.1rem;
+    }
+    
+    .review-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+    
+    .review-rating {
+      margin-left: 0;
+    }
+  }
