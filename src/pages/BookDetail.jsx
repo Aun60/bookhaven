@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getBookById } from '../services/bookService';
-// import ReviewForm from '../components/ReviewForm';
 import ReviewForm from '../components/ReviewForm';
-// import ReviewForm from '../components/Reviewform';
 import { useBooks } from '../context/BookContext';
 import { useAuth } from '../context/AuthContext';
 import './BookDetail.css';
@@ -69,6 +67,7 @@ const BookDetail = () => {
 
   return (
     <div className="book-detail-page">
+      <div className="menu-bar">Menu</div>
       <div className="book-detail">
         <div className="book-cover-section">
           <img 
@@ -79,7 +78,7 @@ const BookDetail = () => {
           
           {isAuthenticated && (
             <button 
-              className={`favorite-button large ${isFavorite(book.id) ? 'favorited' : ''}`}
+              className={`favorite-button ${isFavorite(book.id) ? 'favorited' : ''}`}
               onClick={handleFavoriteToggle}
             >
               {isFavorite(book.id) ? 'Remove from Favorites' : 'Add to Favorites'}
@@ -90,25 +89,21 @@ const BookDetail = () => {
         <div className="book-info-section">
           <h1 className="book-title">{book.title}</h1>
           <h2 className="book-author">by {book.author}</h2>
-          
           <div className="book-metadata">
-            <span className="book-year">Published: {book.yearPublished}</span>
-            <span className="book-category">Category: {book.category}</span>
-            <span className="book-price">Price: ${book.price.toFixed(2)}</span>
+            <span>Published: {book.yearPublished}</span>
+            <span>Category: {book.category}</span>
+            <span>Price: ${book.price.toFixed(2)}</span>
           </div>
-          
           <div className="book-description">
             <h3>Description</h3>
             <p>{book.description}</p>
           </div>
         </div>
       </div>
-      
       <div className="reviews-section">
         <h2>Reviews</h2>
-        
         {book.reviews.length === 0 ? (
-          <p className="no-reviews">No reviews yet. Be the first to review this book!</p>
+          <p>No reviews yet. Be the first to review this book!</p>
         ) : (
           <div className="reviews-list">
             {book.reviews.map((review) => (
@@ -129,7 +124,6 @@ const BookDetail = () => {
             ))}
           </div>
         )}
-        
         {isAuthenticated ? (
           <ReviewForm onSubmit={handleReviewSubmit} loading={reviewLoading} />
         ) : (

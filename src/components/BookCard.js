@@ -8,42 +8,41 @@ const BookCard = ({ book }) => {
   const { toggleFavorite, isFavorite } = useBooks();
   const { isAuthenticated } = useAuth();
   
-  const { id, title, author, cover, price, yearPublished, category } = book;
-  
-  const handleFavoriteToggle = (e) => {
+  const handleFavoriteClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    toggleFavorite(id);
+    toggleFavorite(book.id);
   };
 
   return (
     <div className="book-card">
-      <Link to={`/book/${id}`} className="book-link">
-        <div className="book-cover">
+      <Link to={`/book/${book.id}`} className="book-link">
+        <div className="book-media">
           <img 
-            src={cover || 'https://via.placeholder.com/150x200?text=No+Cover'} 
-            alt={`${title} cover`} 
-            className="cover-image"
+            src={book.cover || '/images/default-book.png'} 
+            alt={`Cover of ${book.title}`} 
+            loading="lazy"
+            className="book-image"
           />
         </div>
-        <div className="book-info">
-          <h3 className="book-title">{title}</h3>
-          <p className="book-author">by {author}</p>
-          <p className="book-metadata">
-            <span className="book-year">{yearPublished}</span>
-            <span className="book-category">{category}</span>
-          </p>
-          <p className="book-price">${price.toFixed(2)}</p>
+        <div className="book-details">
+          <h3 className="book-heading">{book.title}</h3>
+          <p className="book-creator">By {book.author}</p>
+          <div className="book-meta">
+            <span className="book-year">{book.yearPublished}</span>
+            <span className="book-genre">{book.category}</span>
+          </div>
+          <p className="book-cost">${book.price?.toFixed(2)}</p>
         </div>
       </Link>
       
       {isAuthenticated && (
         <button 
-          className={`favorite-button ${isFavorite(id) ? 'favorited' : ''}`}
-          onClick={handleFavoriteToggle}
-          aria-label={isFavorite(id) ? "Remove from favorites" : "Add to favorites"}
+          className={`bookmark-btn ${isFavorite(book.id) ? 'saved' : ''}`}
+          onClick={handleFavoriteClick}
+          aria-label={isFavorite(book.id) ? "Remove from collection" : "Add to collection"}
         >
-          {isFavorite(id) ? '★' : '☆'}
+          {isFavorite(book.id) ? '✓' : '+'}
         </button>
       )}
     </div>

@@ -3,51 +3,59 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Header.css';
 
-const Header = () => {
+const NavigationBar = () => {
   const { user, logout, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
+  const signOut = async () => {
     await logout();
     navigate('/');
   };
 
+  const renderUserLinks = () => (
+    <>
+      <li>
+        <Link to="/add-book">Add New Book</Link>
+      </li>
+      <li>
+        <Link to="/favorites">My Saved Books</Link>
+      </li>
+    </>
+  );
+
+  const renderAuthControls = () => (
+    isAuthenticated ? (
+      <div className="user-profile">
+        <span>Hello, {user.name}</span>
+        <button onClick={signOut} className="sign-out-button">Sign Out</button>
+      </div>
+    ) : (
+      <Link to="/login" className="sign-in-button">Sign In</Link>
+    )
+  );
+
   return (
-    <header className="header">
-      <div className="logo">
+    <div className="top-navigation-bar">
+      <div className="brand-logo">
         <Link to="/">
           <h1>BookHaven</h1>
         </Link>
       </div>
-      <nav className="nav">
+      
+      <div className="navigation-menu">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Browse Books</Link>
           </li>
-          {isAuthenticated && (
-            <>
-              <li>
-                <Link to="/add-book">Add Book</Link>
-              </li>
-              <li>
-                <Link to="/favorites">Favorites</Link>
-              </li>
-            </>
-          )}
+          {isAuthenticated && renderUserLinks()}
         </ul>
-      </nav>
-      <div className="auth-section">
-        {isAuthenticated ? (
-          <div className="user-info">
-            <span>Welcome, {user.name}</span>
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
-          </div>
-        ) : (
-          <Link to="/login" className="login-btn">Login</Link>
-        )}
       </div>
-    </header>
+      
+      <div className="user-authentication">
+        {renderAuthControls()}
+      </div>
+    </div>
   );
 };
 
-export default Header;
+export default NavigationBar;

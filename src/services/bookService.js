@@ -1,72 +1,73 @@
 // Mock initial book data
-import i1 from './Images/i1.jpg'
-import i2 from './Images/i2.jpg'
-import i3 from './Images/i3.jpg'
-import i4 from './Images/i4.jpg'
-import i5 from './Images/i5.jpg'
+import cover1 from './Images/i1.jpg'
+import cover2 from './Images/i2.jpg'
+import cover3 from './Images/i3.jpg'
+import cover4 from './Images/i4.jpg'
+import cover5 from './Images/i5.jpg'
 let BOOKS = [
-    {
-      id: 1,
-      title: 'Between the Water and the Woods',
-      author: 'Simone Snaith',
-      cover: i1,
-      description: 'A story of wealth, love, and the American Dream in the 1920s.',
-      price: 9.99,
-      category: 'Fantasy',
-      yearPublished: 1925,
-      reviews: [
-        { id: 1, userId: 1, userName: 'Partham Kumar', rating: 5, comment: 'A timeless classic!', date: '2025-02-15' }
-      ]
-    },
-    {
-      id: 2,
-      title: 'The Child Thief',
-      author: 'Brom',
-      cover: i2,
-      description: 'Peter is quick, daring, and full of mischief—and like all boys, he loves to play, though his games often end in blood.',
-      price: 16.49,
-      category: 'Fiction',
-      yearPublished: 1960,
-      reviews: []
-    },
-    {
-      id: 3,
-      title: 'The Graveyard Book',
-      author: 'Neil Gaiman',
-      cover: i3,
-      description: 'Nobody Owens, known to his friends as Bod, is a perfectly normal boy. Well, he would be perfectly normal if he did not live in a graveyard, being raised and educated by ghosts, with a solitary guardian who belongs to neither the world of the living nor the world of the dead.',
-      price: 14.99,
-      category: 'Horror',
-      yearPublished: 1937,
-      reviews: [
-        { id: 2, userId: 1, userName: 'Partham Kumar', rating: 4, comment: 'Great fantasy adventure!', date: '2025-01-20' }
-      ]
-    },
-    {
-        id: 4,
-        title: 'Snow & Rose',
-        author: 'Emily Winfield Martin',
-        cover: i4,
-        description: 'A New York Times bestselling author-illustrator brings readers into the woods to meet two young sisters and a strange bit of magic in this reimagining of the classic but little-known fairy tale "Snow White and Rose Red.',
-        price: 7.99,
-        category: 'Fiction',
-        yearPublished: 1947,
-        reviews: [
-          { id: 2, userId: 1, userName: 'Partham Kumar', rating: 4, comment: 'Great fantasy adventure!', date: '2025-01-20' }
-        ]
-      },
-      {
-          id: 5,
-          title: 'The Nest',
-          author: 'Kenneth Oppel',
-          cover: i5,
-          description: 'For some kids summer is a sun-soaked season of fun. But for Steve, it’s just another season of worries. Worries about his sick newborn baby brother who is fighting to survive, worries about his parents who are struggling to cope, even worries about the wasp’s nest looming ominously from the eaves.',
-          price: 15.00,
-          category: 'Fiction',
-          yearPublished: 1980,
-          
-        }
-  ];
+  {
+    id: 1,
+    title: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
+    cover: cover1, // Replace with actual image path or URL
+    description: 'A story of wealth, love, and the American Dream in the 1920s.',
+    price: 10.99,
+    category: 'Classic',
+    yearPublished: 1925,
+    reviews: [
+      { id: 1, userId: 1, userName: 'John Doe', rating: 5, comment: 'A timeless classic!', date: '2025-02-15' }
+    ]
+  },
+  {
+    id: 2,
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    cover: cover2, // Replace with actual image path or URL
+    description: 'A novel about the serious issues of rape and racial inequality told through the eyes of a child.',
+    price: 7.99,
+    category: 'Fiction',
+    yearPublished: 1960,
+    reviews: []
+  },
+  {
+    id: 3,
+    title: '1984',
+    author: 'George Orwell',
+    cover: cover3, // Replace with actual image path or URL
+    description: 'A dystopian novel set in a totalitarian society under constant surveillance.',
+    price: 8.99,
+    category: 'Dystopian',
+    yearPublished: 1949,
+    reviews: [
+      { id: 2, userId: 2, userName: 'Jane Smith', rating: 4, comment: 'A chilling depiction of the future.', date: '2025-01-20' }
+    ]
+  },
+  {
+    id: 4,
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
+    cover: cover4, // Replace with actual image path or URL
+    description: 'A romantic novel that also critiques the British landed gentry at the end of the 18th century.',
+    price: 6.99,
+    category: 'Romance',
+    yearPublished: 1813,
+    reviews: [
+      { id: 3, userId: 3, userName: 'Alice Johnson', rating: 5, comment: 'An all-time favorite.', date: '2025-03-10' }
+    ]
+  },
+  {
+    id: 5,
+    title: 'The Catcher in the Rye',
+    author: 'J.D. Salinger',
+    cover: cover5, // Replace with actual image path or URL
+    description: 'A story about adolescent alienation and loss of innocence in the protagonist Holden Caulfield.',
+    price: 9.50,
+    category: 'Literature',
+    yearPublished: 1951,
+    reviews: []
+  }
+];
+
   
   export const getBooks = async () => {
     // Simulate API request delay
@@ -124,12 +125,10 @@ let BOOKS = [
       throw new Error('Book not found');
     }
     
-    // In a real app, we would get userId and userName from the token
-    // Here we'll use Partham Kumar data from our mock implementation
     const newReview = {
       id: book.reviews.length > 0 ? Math.max(...book.reviews.map(review => review.id)) + 1 : 1,
       userId: 1,
-      userName: 'Partham Kumar',
+      userName: 'Aun Ali',
       ...reviewData,
       date: new Date().toISOString().split('T')[0]
     };

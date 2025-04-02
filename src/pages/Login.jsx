@@ -8,20 +8,18 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Set default credentials
+  // Initialize empty form fields
   const [formData, setFormData] = useState({
-    email: 'partham@gmail.com',
-    password: '0000'
+    email: '',
+    password: ''
   });
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Get the page user was trying to access before being redirected to login
   const from = location.state?.from || '/';
 
   useEffect(() => {
-    // If user is already authenticated, redirect to home or the page they came from
     if (isAuthenticated) {
       navigate(from);
     }
@@ -53,7 +51,6 @@ const Login = () => {
     
     try {
       await login(formData.email, formData.password);
-      // Redirect will happen automatically due to the useEffect above
     } catch (err) {
       setError(err.message || 'Login failed. Please try again.');
     } finally {
@@ -65,6 +62,8 @@ const Login = () => {
     <div className="login-page">
       <div className="login-container">
         <h1>Login to BookHaven</h1>
+        <p>Email: Aun@gmail.com</p>
+        <p>Password: 4029</p>
         
         <form className="login-form" onSubmit={handleSubmit}>
           {(error || authError) && (

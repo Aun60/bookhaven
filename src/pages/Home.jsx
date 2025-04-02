@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BookCard from '../components/BookCard';
-// import BookCard from '../components/Bookcard';
 import SearchBar from '../components/SearchBar';
-// import SearchBar from '../components/Searchbar';
 import { useBooks } from '../context/BookContext';
 import { searchBooks } from '../services/bookService';
 import './Home.css';
@@ -14,7 +12,6 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    // Initialize with all books
     setFilteredBooks(books);
   }, [books]);
 
@@ -39,35 +36,27 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div className="loading">Loading books...</div>;
+    return <div className="loading">Fetching books...</div>;
   }
 
   if (error) {
-    return <div className="error-message">Error: {error}</div>;
+    return <div className="error-message">Error loading data: {error}</div>;
   }
 
   return (
     <div className="home-page">
-      <div className="hero-section">
-        <h1>Welcome to BookHaven</h1>
-        <p>Discover your next favorite book in our collection</p>
+      <header className="hero-section">
         <SearchBar onSearch={handleSearch} />
-      </div>
+      </header>
 
-      <div className="books-section">
-        <h2>
-          {searchQuery
-            ? `Search Results for "${searchQuery}"`
-            : 'Browse Our Collection'}
-        </h2>
+      <main className="books-section">
+        <h2>{searchQuery ? `Results for "${searchQuery}"` : 'Explore Our Library'}</h2>
 
         {isSearching ? (
           <div className="loading">Searching...</div>
         ) : filteredBooks.length === 0 ? (
           <div className="no-results">
-            {searchQuery
-              ? `No books found matching "${searchQuery}"`
-              : 'No books available'}
+            {searchQuery ? `No books found for "${searchQuery}"` : 'No books available'}
           </div>
         ) : (
           <div className="books-grid">
@@ -76,7 +65,7 @@ const Home = () => {
             ))}
           </div>
         )}
-      </div>
+      </main>
     </div>
   );
 };

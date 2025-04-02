@@ -1,21 +1,71 @@
+/* Global app styling */
 .app {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.header {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease; /* Smooth transition for resizing */
 }
 
 .main-content {
   flex: 1;
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  padding: 2rem;
+  margin-left: 250px; /* Push content to the right */
+  width: calc(100% - 250px);
+  transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
 .footer {
   background-color: #2c3e50;
-  color: white;
+  color: bisque;
   text-align: center;
-  padding: 1.5rem;
+  padding: 2.5rem;
   margin-top: 2rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column; /* Stack header and content vertically on smaller screens */
+  }
+
+  .header {
+    width: 100%; /* Make header full width on mobile */
+    height: auto; /* Adjust height to content */
+    position: relative; /* Change fixed position for mobile */
+  }
+
+  .main-content {
+    margin-left: 0; /* Remove margin-left on mobile */
+    width: 100%; /* Take full width on mobile */
+    padding: 1.5rem; /* Adjust padding for better spacing */
+  }
+
+  .footer {
+    padding: 1.5rem; /* Adjust footer padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.8rem; /* Reduce padding for smaller mobile screens */
+  }
+
+  .main-content {
+    padding: 1rem; /* Reduce padding for small screens */
+  }
+
+  .footer {
+    padding: 1rem; /* Reduce footer padding on small screens */
+  }
 }

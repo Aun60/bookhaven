@@ -1,154 +1,111 @@
-/* Home.css */
-
+/* Home Page Container */
 .home-page {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  /* Hero Section */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+/* Books Section */
+.books-section {
+  padding: 0 20px;
+}
+
+.books-section h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+/* Books Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* Loading States */
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #3498db;
+}
+
+.error-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #e74c3c;
+  background-color: #fadbd8;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .hero-section {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: linear-gradient(135deg, #3498db, #2c3e50);
-    color: white;
-    border-radius: 0 0 20px 20px;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px 15px;
   }
-  
+
   .hero-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
   }
-  
+
   .hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-size: 1rem;
   }
-  
-  /* Search Bar Container */
-  .hero-section .search-bar {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  /* Books Section */
-  .books-section {
-    padding: 0 1rem 2rem;
-  }
-  
-  .books-section h2 {
-    color: #2c3e50;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    text-align: center;
-  }
-  
-  /* Books Grid */
+
   .books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 2rem;
-    padding: 0 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
   }
-  
-  /* Loading States */
-  .loading {
-    text-align: center;
-    padding: 3rem;
-    font-size: 1.2rem;
-    color: #7f8c8d;
-  }
-  
-  /* Error Message */
-  .error-message {
-    text-align: center;
-    padding: 3rem;
-    color: #e74c3c;
-    font-size: 1.2rem;
-  }
-  
-  /* No Results */
-  .no-results {
-    text-align: center;
-    padding: 3rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    color: #7f8c8d;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 1024px) {
-    .books-grid {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .hero-section {
-      padding: 2rem 1rem;
-    }
-    
-    .hero-section h1 {
-      font-size: 2rem;
-    }
-    
-    .hero-section p {
-      font-size: 1rem;
-    }
-    
-    .books-section h2 {
-      font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    }
-    
-    .books-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .hero-section {
-      border-radius: 0;
-      margin-bottom: 2rem;
-    }
-    
-    .hero-section h1 {
-      font-size: 1.7rem;
-    }
-    
-    .books-grid {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-      padding: 0;
-    }
-    
-    .loading,
-    .error-message,
-    .no-results {
-      padding: 2rem 1rem;
-    }
-  }
-  
-  /* Animation for hero section */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
+
+@media (max-width: 480px) {
   .hero-section {
-    animation: fadeInUp 0.6s ease-out;
+    padding: 30px 10px;
   }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+}

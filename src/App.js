@@ -11,7 +11,6 @@ import { BookProvider } from './context/BookContext';
 import './App.css';
 
 const App = () => {
-  // Protected route component
   const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -24,7 +23,7 @@ const App = () => {
     <AuthProvider>
       <BookProvider>
         <div className="app">
-          <Header />
+          <Header /> {/* Sidebar Navigation */}
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -49,9 +48,6 @@ const App = () => {
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>
-          <footer className="footer">
-            <p>© 2025 BookHaven - Your Online Bookstore</p>
-          </footer>
         </div>
       </BookProvider>
     </AuthProvider>

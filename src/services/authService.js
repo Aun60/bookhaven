@@ -1,6 +1,6 @@
 // Mock user data - in a real app, this would be stored on a server
 const USERS = [
-    { id: 1, email: 'partham@gmail.com', password: '0000', name: 'Partham Kumar' }
+    { id: 1, email: 'Aun@gmail.com', password: '4029', name: 'Aun Ali' }
   ];
   
   // Mock token generation

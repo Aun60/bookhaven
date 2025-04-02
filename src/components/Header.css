@@ -1,136 +1,173 @@
-/* Header.css */
+/* Black and White Theme Navigation - Left Sidebar */
+.top-navigation-bar {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-right: 1px solid #000000; /* Border on the right */
+  position: fixed; /* Fix to the left */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height of the viewport */
+  width: 250px; /* Sidebar width */
+  z-index: 1000;
+}
 
-/* Base styles for the header */
-.header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* Brand Logo - Monochrome */
+.brand-logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+  padding-bottom: 1rem; /* Space below the logo */
+}
+
+.brand-logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navigation Menu - Minimal Black/White */
+.navigation-menu ul {
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem; /* Space between the links */
+}
+
+.navigation-menu a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.navigation-menu a:hover {
+  color: #555555;
+}
+
+.navigation-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.navigation-menu a:hover::after {
+  width: 100%;
+}
+
+/* User Authentication - Monochrome */
+.user-authentication {
+  display: flex;
+  align-items: center;
+  margin-top: auto; /* Push the authentication buttons to the bottom */
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-profile span {
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.sign-out-button, .sign-in-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #000000;
+}
+
+.sign-out-button:hover, .sign-in-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 250px; /* Offset content from the sidebar */
+  padding: 2rem;
+  width: calc(100% - 250px); /* Take up the remaining space */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-navigation-bar {
+    width: 100%; /* Full width on smaller screens */
+    height: auto; /* Adjust height for mobile */
+    flex-direction: row; /* Align horizontally */
+    padding: 1rem;
+    position: relative; /* Remove fixed position on smaller screens */
   }
-  
-  /* Logo styles */
-  .logo h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ecf0f1;
-    transition: color 0.3s ease;
-  }
-  
-  .logo a {
-    text-decoration: none;
-  }
-  
-  .logo h1:hover {
-    color: #3498db;
-  }
-  
-  /* Navigation styles */
-  .nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1.5rem;
-  }
-  
-  .nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  
-  .nav a:hover {
-    color: #3498db;
-  }
-  
-  /* Underline effect on hover */
-  .nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #3498db;
-    transition: width 0.3s ease;
-  }
-  
-  .nav a:hover::after {
-    width: 100%;
-  }
-  
-  /* Auth section styles */
-  .auth-section {
-    display: flex;
-    align-items: center;
+
+  .navigation-menu ul {
+    flex-direction: row; /* Align menu items horizontally */
     gap: 1rem;
   }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
+
+  .user-profile {
+    margin-top: 0;
     gap: 1rem;
   }
-  
-  .user-info span {
-    font-weight: 500;
+
+  .main-content {
+    margin-left: 0; /* Remove left margin */
+    width: 100%; /* Full width */
+    padding: 1.5rem; /* Adjust padding */
   }
-  
-  /* Button styles */
-  .logout-btn, .login-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .brand-logo h1 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
   }
-  
-  .logout-btn {
-    background-color: #e74c3c;
-    color: white;
+
+  .navigation-menu ul {
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: center;
+    gap: 0.75rem;
   }
-  
-  .logout-btn:hover {
-    background-color: #c0392b;
+
+  .navigation-menu a {
+    font-size: 0.9rem; /* Smaller font size for mobile */
   }
-  
-  .login-btn {
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
+
+  .user-profile {
+    flex-direction: column;
+    gap: 0.75rem;
   }
-  
-  .login-btn:hover {
-    background-color: #2980b9;
+
+  .top-navigation-bar {
+    padding: 0.8rem; /* Adjust padding for mobile */
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .header {
-      flex-direction: column;
-      padding: 1rem;
-      gap: 1rem;
-    }
-  
-    .nav ul {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-  
-    .auth-section {
-      margin-top: 0.5rem;
-    }
+
+  .main-content {
+    padding: 1rem; /* Reduce padding for smaller screens */
   }
+}
