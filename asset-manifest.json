@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/bookhaven/static/css/main.31348e43.css",
+    "main.js": "/bookhaven/static/js/main.1d4cf62e.js",
+    "static/media/i3.jpg": "/bookhaven/static/media/i3.820739bad2b4f5a052dc.jpg",
+    "static/media/i1.jpg": "/bookhaven/static/media/i1.a72a37df7a73ed338f60.jpg",
+    "static/media/i4.jpg": "/bookhaven/static/media/i4.20343631c94fd636a3ab.jpg",
+    "static/media/i5.jpg": "/bookhaven/static/media/i5.e9366919ce6d4f241a0f.jpg",
+    "static/media/i2.jpg": "/bookhaven/static/media/i2.8b900c6710ea6e34def4.jpg",
+    "index.html": "/bookhaven/index.html",
+    "main.31348e43.css.map": "/bookhaven/static/css/main.31348e43.css.map",
+    "main.1d4cf62e.js.map": "/bookhaven/static/js/main.1d4cf62e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31348e43.css",
+    "static/js/main.1d4cf62e.js"
+  ]
+}
